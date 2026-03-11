@@ -28,7 +28,7 @@ export default function Home() {
         {/* HERO */}
         <main className="flex-1 flex flex-col items-center justify-center text-center px-8 -mt-8">
           <div className="bg-white rounded-3xl shadow-sm border border-gray-100 max-w-lg w-full px-10 py-14 mx-auto">
-            <h1 className="text-4xl font-bold leading-tight mb-6 tracking-tight">
+            <h1 className="text-4xl font-semibold leading-tight mb-6 tracking-tight">
               Pure food.<br />
               Engineered for<br />
               extreme endurance.
