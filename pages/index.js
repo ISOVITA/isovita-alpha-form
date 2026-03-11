@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-white font-sans overflow-hidden flex flex-col">
+    <div className="relative min-h-screen bg-[#fdfbf7] font-sans overflow-hidden flex flex-col">
       <Head>
         <title>ISOVITA | Cognitive Endurance Fuel</title>
         <meta name="description" content="Pure food. Nootropic-fortified. Engineered for extreme endurance." />
