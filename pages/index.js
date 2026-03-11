@@ -44,7 +44,7 @@ const FormSection = ({ title, number, currentStep, setStep, children }) => {
       <button type="button" onClick={() => setStep(number)} className="w-full flex items-center justify-between p-5 text-left">
         <div className="flex items-center gap-4">
           <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ${currentStep >= number ? 'bg-[#C1D72E] text-white' : 'bg-gray-100 text-gray-400'}`}>{number}</div>
-          <h3 className="text-[11px] uppercase tracking-[0.2em] font-bold text-gray-500">{title}</h3>
+          <h3 className="text-base uppercase tracking-[0.1em] font-semibold text-gray-600">{title}</h3>
         </div>
         {isOpen ? <ChevronUp size={16} className="text-gray-300" /> : <ChevronDown size={16} className="text-gray-300" />}
       </button>
@@ -106,7 +106,7 @@ export default function RegistrationForm() {
         <div className="text-center max-w-sm">
           <CheckCircle2 size={48} className="mx-auto mb-6 text-[#a50251]" />
           <h1 className="text-2xl font-bold mb-4 tracking-tight">❤️ THANK YOU FROM ISOVITA</h1>
-          <p className="text-gray-500 text-sm leading-relaxed">Your details are in. We'll be in touch to begin our Alpha Testing Program.</p>
+          <p className="text-gray-500 text-base leading-relaxed">Your details are in. We'll be in touch to begin our Alpha Testing Program.</p>
         </div>
       </div>
     );
@@ -117,55 +117,68 @@ export default function RegistrationForm() {
       <Head><title>ISOVITA | Alpha Program</title></Head>
 
       {/* Background block — starts 70% from bottom */}
-      <div className="fixed bottom-0 left-0 w-full h-[70vh] z-0" style={{ backgroundColor: BRAND_BLOCK }} />
+      <div className="fixed bottom-0 left-0 w-full h-[60vh] z-0" style={{ backgroundColor: BRAND_BLOCK }} />
 
       <div className="relative z-10 flex flex-col min-h-screen">
 
         {/* HEADER */}
-        <header className="pt-16 pb-12 text-center px-8 bg-white">
-          <h1 className="mb-2 text-[#1A1A1A]" style={{ fontSize: '5rem', fontWeight: 600, letterSpacing: '-0.04em', lineHeight: 1 }}>
-            ISOVITA
-          </h1>
-          <p className="text-[10px] tracking-[0.4em] uppercase font-bold text-gray-300 mb-10">Cognitive Endurance Fuel</p>
-          <h2 className="text-2xl font-bold leading-tight mb-3 max-w-xs mx-auto">Become a co-creator of ISOVITA's Alpha Program</h2>
-          <p className="text-gray-400 text-sm max-w-xs mx-auto">Help develop the pure food alternative to sports nutrition.</p>
-        </header>
+   <header className="pt-20 pb-16 text-center px-8 bg-white">
+  
+  <img 
+    src="/ISOVITA_logo_2x.png" 
+    alt="ISOVITA logo"
+    className="mx-auto h-24 mb-6 object-contain"
+  />
 
-        <main className="max-w-xl mx-auto px-6 w-full pb-20">
+  <p className="text-base tracking-[0.2em] uppercase font-semibold text-gray-500 mb-10">
+    Cognitive Endurance Fuel
+  </p>
+
+  <h2 className="text-3xl font-semibold leading-tight mb-4 max-w-md mx-auto">
+    Become a co-creator of ISOVITA's Alpha Program
+  </h2>
+
+  <p className="text-gray-600 text-base max-w-md mx-auto">
+    Help develop the pure food alternative to sports nutrition.
+  </p>
+
+</header>
+
+        <main className="max-w-xl mx-auto px-6 w-full pb-20 -mt-12">
           <form onSubmit={handleSubmit}>
 
             {/* SECTION 1 — Personal Details */}
             <FormSection title="Personal Details" number={1} currentStep={step} setStep={setStep}>
               <input name="full_name" required value={formData.full_name} onChange={handleChange}
                 placeholder="Full Name"
-                className="w-full p-3 border-b border-gray-100 focus:border-black outline-none text-sm" />
+                className="w-full p-4 border-b border-gray-100 focus:border-black outline-none text-base" />
 
               <input name="email" type="email" required value={formData.email} onChange={handleChange}
                 placeholder="Email Address"
-                className="w-full p-3 border-b border-gray-100 focus:border-black outline-none text-sm" />
+                className="w-full p-4 border-b border-gray-100 focus:border-black outline-none text-base" />
 
               {/* Phone with country code */}
               <div className="flex gap-2 border-b border-gray-100">
                 <select name="country_code" value={formData.country_code} onChange={handleChange}
-                  className="w-1/3 p-3 bg-transparent outline-none text-sm text-gray-500">
+                  className="w-1/3 p-4 bg-transparent outline-none text-base text-gray-500">
                   {countryCodes.map(c => (
                     <option key={c.iso} value={c.code}>{c.iso} ({c.code})</option>
                   ))}
                 </select>
                 <input name="mobile" type="tel" value={formData.mobile} onChange={handleChange}
                   placeholder="Mobile Number"
-                  className="w-2/3 p-3 bg-transparent outline-none text-sm" />
+                  className="w-2/3 p-4 bg-transparent outline-none text-base" />
               </div>
 
               <div className="flex gap-4">
                 <select name="year_born" value={formData.year_born} onChange={handleChange}
-                  className="w-1/2 p-3 border-b border-gray-100 outline-none text-sm text-gray-500">
+                  className="w-1/2 p-4 border-b border-gray-100 outline-none text-base text-gray-500">
                   <option value="">Year of Birth</option>
                   {years.map(y => <option key={y} value={y}>{y}</option>)}
                 </select>
 
                 <select name="country_residence" value={formData.country_residence} onChange={handleChange}
-                  className="w-1/2 p-3 border-b border-gray-100 outline-none text-sm text-gray-500">
+                  className="w-1/2 p-4 border-b border-gray-100 outline-none text-base text-gray-500">
                   <option value="">Your Country of Residence</option>
                   {countries.map(c => <option key={c} value={c}>{c}</option>)}
                 </select>
@@ -176,10 +189,10 @@ export default function RegistrationForm() {
             <FormSection title="Athletic Profile" number={2} currentStep={step} setStep={setStep}>
               <input name="sport" value={formData.sport} onChange={handleChange}
                 placeholder="Primary Sport"
-                className="w-full p-3 border-b border-gray-100 outline-none text-sm" />
+                className="w-full p-4 border-b border-gray-100 outline-none text-base" />
 
               <select name="event_type" value={formData.event_type} onChange={handleChange}
-                className="w-full p-3 border-b border-gray-100 outline-none text-sm text-gray-500">
+                className="w-full p-4 border-b border-gray-100 outline-none text-base text-gray-500">
                 <option value="">Primary Event Type</option>
                 <option>Channel Swim</option>
                 <option>Ironman / Triathlon</option>
@@ -188,7 +201,7 @@ export default function RegistrationForm() {
               </select>
 
               <select name="training_freq_monthly" value={formData.training_freq_monthly} onChange={handleChange}
-                className="w-full p-3 border-b border-gray-100 outline-none text-sm text-gray-500">
+                className="w-full p-4 border-b border-gray-100 outline-none text-base text-gray-500">
                 <option value="">Training Frequency</option>
                 <option>Once a month</option>
                 <option>2–3 times a month</option>
@@ -201,7 +214,7 @@ export default function RegistrationForm() {
             <FormSection title="Nutrition Insights" number={3} currentStep={step} setStep={setStep}>
               <textarea name="current_nutrition" value={formData.current_nutrition} onChange={handleChange}
                 placeholder="Your current nutrition method (e.g. Gels, Real Food, Liquid Only, Brands)"
-                className="w-full p-3 border border-gray-100 rounded-lg outline-none text-sm h-24 resize-none" />
+                className="w-full p-4 border border-gray-100 rounded-lg outline-none text-base h-24 resize-none" />
 
               <div className="pt-2">
                 <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-3">Do you get sweetness fatigue?</p>
@@ -224,17 +237,17 @@ export default function RegistrationForm() {
 
             {/* CONSENT — above CTA */}
             <div className="mt-8 mb-6 space-y-4 px-2">
-              <label className="flex items-start gap-3 cursor-pointer">
+              <label className="flex items-start gap-4 cursor-pointer">
                 <input type="checkbox" name="marketing_opt_in" checked={formData.marketing_opt_in}
                   onChange={handleChange} className="mt-1 w-4 h-4 accent-white" />
-                <span className="text-[10px] text-white/70 leading-relaxed">
+                <span className="text-sm text-white/80 leading-relaxed">
                   I would like to receive updates about ISOVITA product development.
                 </span>
               </label>
-              <label className="flex items-start gap-3 cursor-pointer">
+              <label className="flex items-start gap-4 cursor-pointer">
                 <input type="checkbox" name="gdpr_consent" checked={formData.gdpr_consent}
                   onChange={handleChange} className="mt-1 w-4 h-4 accent-white" />
-                <span className="text-[10px] text-white/70 leading-relaxed font-bold">
+                <span className="text-sm text-white/80 leading-relaxed font-bold">
                   I consent to ISOVITA processing my data in accordance with UK GDPR.
                 </span>
               </label>
@@ -244,7 +257,7 @@ export default function RegistrationForm() {
             <button
               type="submit"
               disabled={!isFormValid || loading}
-              className={`w-full py-5 rounded-2xl text-[11px] uppercase tracking-[0.4em] font-bold transition-all border-2
+              className={`w-full py-6 rounded-2xl text-base uppercase tracking-[0.2em] font-semibold transition-all border-2
                 ${isFormValid
                   ? 'bg-white text-[#a50251] border-white shadow-2xl'
                   : 'bg-white/10 text-white/30 border-white/10 cursor-not-allowed'}`}>
