@@ -116,7 +116,7 @@ export default function RegistrationForm() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#fdfbf7] font-sans overflow-x-hidden">
+    <div className="relative min-h-screen bg-gray-50 font-sans overflow-x-hidden">
       <Head><title>ISOVITA | Alpha Program</title></Head>
 
       {/* Background block — starts 60% from bottom for overlap effect */}
