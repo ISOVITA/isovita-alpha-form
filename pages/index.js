@@ -132,7 +132,7 @@ export default function RegistrationForm() {
             className="mx-auto h-24 mb-8 object-contain"
           />
           <p className="text-sm tracking-[0.2em] uppercase font-bold text-gray-500 mb-12">Cognitive Endurance Fuel</p>
-          <h2 className="text-3xl font-bold leading-tight mb-4 max-w-md mx-auto">Become a co-creator of ISOVITA's Alpha Program</h2>
+          <h2 className="text-3xl font-semibold leading-tight mb-4 max-w-md mx-auto">Become a co-creator of ISOVITA's Alpha Program</h2>
           <p className="text-gray-600 text-lg max-w-md mx-auto">Help develop the pure food alternative to sports nutrition.</p>
         </header>
 
