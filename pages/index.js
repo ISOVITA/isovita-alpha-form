@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { createClient } from '@supabase/supabase-js';
