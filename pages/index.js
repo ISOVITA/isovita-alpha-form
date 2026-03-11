@@ -92,7 +92,10 @@ export default function RegistrationForm() {
     e.preventDefault();
     if (!formData.gdpr_consent) return alert("Consent required.");
     setLoading(true);
-    const { error } = await supabase.from('registrations').insert([formData]);
+    const { error } = await supabase.from('registrations').insert([{
+  ...formData,
+  consent_timestamp: new Date().toISOString()
+}]);
     if (error) alert(error.message);
     else setSubmitted(true);
     setLoading(false);
