@@ -130,4 +130,69 @@ export default function RegistrationForm() {
               <div className="flex gap-4">
                 <select name="year_born" value={formData.year_born} onChange={handleChange} className="w-1/2 p-3 border-b border-gray-100 outline-none text-sm text-gray-500">
                   <option value="">Year of Birth</option>
-                  {year
+                  {years.map(y => <option key={y} value={y}>{y}</option>)}
+                </select>
+                <input name="country_residence" value={formData.country_residence} onChange={handleChange} placeholder="Country of Residence" className="w-1/2 p-3 border-b border-gray-100 outline-none text-sm" />
+              </div>
+            </FormSection>
+
+            <FormSection title="Athletic Profile" number={2} currentStep={step} setStep={setStep}>
+              <input name="sport" value={formData.sport} onChange={handleChange} placeholder="Primary Sport" className="w-full p-3 border-b border-gray-100 outline-none text-sm" />
+              <select name="event_type" value={formData.event_type} onChange={handleChange} className="w-full p-3 border-b border-gray-100 outline-none text-sm text-gray-500">
+                <option value="">Primary Event Type</option>
+                <option>Channel Swim</option><option>Ironman / Triathlon</option><option>HYROX</option><option>Ultra / Marathon</option>
+              </select>
+              <select name="training_freq_monthly" value={formData.training_freq_monthly} onChange={handleChange} className="w-full p-3 border-b border-gray-100 outline-none text-sm text-gray-500">
+                <option value="">Monthly Training Frequency</option>
+                <option>1–8 sessions / month</option><option>9–16 sessions / month</option><option>17–24 sessions / month</option><option>25+ sessions / month</option>
+              </select>
+            </FormSection>
+
+            <FormSection title="Nutrition Insights" number={3} currentStep={step} setStep={setStep}>
+              <textarea name="current_nutrition" value={formData.current_nutrition} onChange={handleChange} placeholder="Your current nutrition method (e.g. Gels, Real Food, Liquid only)" className="w-full p-3 border border-gray-100 rounded-lg outline-none text-sm h-24 resize-none" />
+              
+              <div className="pt-2">
+                <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-3">Sweetness Fatigue?</p>
+                <div className="flex gap-2">
+                  {['No', 'Sometimes', 'Yes'].map(opt => (
+                    <button key={opt} type="button" onClick={() => setFormData({...formData, sweetness_fatigue: opt})} className={`flex-1 py-2 rounded-lg border text-[10px] uppercase tracking-widest transition-all ${formData.sweetness_fatigue === opt ? 'bg-black text-white border-black' : 'border-gray-100 text-gray-400'}`}>{opt}</button>
+                  ))}
+                </div>
+              </div>
+
+              <label className="flex items-center gap-3 pt-4 cursor-pointer group">
+                <input type="checkbox" name="gi_distress" checked={formData.gi_distress} onChange={handleChange} className="w-4 h-4 accent-[#C1D72E]" />
+                <span className="text-[10px] uppercase tracking-widest text-gray-400 group-hover:text-gray-600">I suffer from GI distress during events</span>
+              </label>
+            </FormSection>
+
+            {/* CTA BUTTON */}
+            <div className="mt-12">
+              <button 
+                type="submit" 
+                disabled={!isFormValid || loading}
+                className={`w-full py-5 rounded-2xl text-[11px] uppercase tracking-[0.4em] font-bold transition-all border-2
+                  ${isFormValid ? 'bg-white text-[#a50251] border-white shadow-2xl' : 'bg-white/10 text-white/30 border-white/10 cursor-not-allowed'}`}
+              >
+                {loading ? 'Registering...' : 'Join the Program'}
+              </button>
+            </div>
+
+            {/* CONSENT FOOTER */}
+            <div className="mt-8 space-y-3 px-2">
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" name="marketing_opt_in" checked={formData.marketing_opt_in} onChange={handleChange} className="mt-1 w-4 h-4 accent-white" />
+                <span className="text-[10px] text-white/70 leading-relaxed">I would like to receive updates about ISOVITA product development.</span>
+              </label>
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" name="gdpr_consent" checked={formData.gdpr_consent} onChange={handleChange} className="mt-1 w-4 h-4 accent-white" />
+                <span className="text-[10px] text-white/70 leading-relaxed font-bold">I consent to ISOVITA processing my data in accordance with UK GDPR.</span>
+              </label>
+            </div>
+
+          </form>
+        </main>
+      </div>
+    </div>
+  );
+}
