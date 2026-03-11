@@ -125,7 +125,7 @@ export default function RegistrationForm() {
    <header className="pt-20 pb-16 text-center px-8 bg-white">
   
   <img 
-    src="/public/ISOVITA_logo_2x.png" 
+    src="/ISOVITA_logo_2x.png" 
     alt="ISOVITA logo"
     className="mx-auto h-24 mb-6 object-contain"
   />
