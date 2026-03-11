@@ -231,3 +231,49 @@ export default function RegistrationForm() {
               <input
                 type="checkbox"
                 name="marketing_opt_in"
+                checked={formData.marketing_opt_in}
+                onChange={handleChange}
+                className="mt-1 w-4 h-4"
+              />
+              <span className="text-xs text-gray-500">
+                I would like to receive updates about ISOVITA product development.
+              </span>
+            </label>
+
+            {/* GDPR */}
+            <label className="flex items-start gap-3 pt-2">
+              <input
+                type="checkbox"
+                name="gdpr_consent"
+                checked={formData.gdpr_consent}
+                onChange={handleChange}
+                className="mt-1 w-4 h-4"
+              />
+              <span className="text-xs text-gray-500">
+                I consent to ISOVITA processing my data in accordance with UK GDPR.
+              </span>
+            </label>
+          </FormSection>
+
+          {/* CTA OUTSIDE PANELS */}
+          <div className="mt-8 mb-16">
+            <button
+              type="submit"
+              disabled={!isFormValid || loading}
+              className={`w-full py-5 rounded-2xl text-sm uppercase tracking-[0.3em] font-bold transition-all
+                ${isFormValid
+                  ? 'bg-white text-[#a50251] border-2 border-[#a50251]'
+                  : 'bg-gray-100 text-gray-400 border-2 border-gray-200 cursor-not-allowed'}`}>
+              {loading ? 'Registering…' : 'Join the Program'}
+            </button>
+          </div>
+
+        </form>
+      </main>
+
+      {/* BOTTOM BLOCK */}
+      <div style={{ backgroundColor: BRAND_BLOCK }}
+           className="h-32 w-full mt-auto" />
+    </div>
+  );
+}
