@@ -37,7 +37,7 @@ export default function Home() {
               ISOVITA is a nootropic-fortified, fruit and vegetable purée-based nutrition system built for open-water swimmers, triathletes, and ultra-endurance athletes.
             </p>
             <a
-              href="/beta"
+              href="/beta/register.js"
               className="inline-block w-full py-5 rounded-2xl text-lg uppercase tracking-[0.2em] font-bold bg-[#a50251] text-white transition-all hover:opacity-90"
             >
               Join the Alpha Program
