@@ -4,8 +4,8 @@ import { useState } from 'react';
 const CTA = () => (
   <a
     href="/beta/register"
-    className="inline-block px-14 py-5 rounded-full text-xs uppercase tracking-[0.4em] font-semibold transition-all hover:bg-[#262118] hover:text-white shadow-sm"
-    style={{ backgroundColor: '#D9CE32', color: '#262118' }}
+    className="inline-block px-14 py-5 rounded-full text-xs uppercase tracking-[0.4em] transition-all hover:bg-[#262118] hover:text-white shadow-sm"
+    style={{ backgroundColor: '#D9CE32', color: '#262118', fontFamily: 'sans-serif', fontWeight: 600 }}
   >
     Join the Alpha Program
   </a>
@@ -31,18 +31,40 @@ export default function BetaWelcome() {
 
       {/* NAV */}
       <nav className="flex items-center justify-between px-16 py-10 sticky top-0 z-50" style={{ backgroundColor: '#F2F2F2' }}>
-        <img src="/ISOVITA_logo_2x.png" alt="ISOVITA" className="h-12 object-contain" />
+        <img src="/ISOVITA_logo_2x.png" alt="ISOVITA" className="h-10 w-auto object-contain" />
         <div className="hidden md:block">
           <CTA />
         </div>
       </nav>
 
-      {/* HERO */}
+      {/* SECTION 1 — FINAL CTA MOVED FIRST */}
+      <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-8 py-28 overflow-hidden">
+        {/* Hero image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/isovita_hero_image.jpeg"
+            alt="Open-water swimmer at sunrise"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(38,33,24,0.45)' }} />
+        </div>
+        <div className="relative z-10 flex flex-col items-center">
+          <h2 className="text-5xl md:text-8xl font-extralight mb-16 leading-tight italic tracking-tighter" style={{ color: '#F2F2F2' }}>
+            If you have ever asked<br /><span style={{ color: '#D9CE32' }}>"Why does this fail me?"</span>
+          </h2>
+          <p className="text-xl font-light mb-20 max-w-md mx-auto leading-loose" style={{ color: '#F2F2F2', opacity: 0.85 }}>
+            Then you belong in this cohort.
+          </p>
+          <CTA />
+        </div>
+      </section>
+
+      {/* SECTION 2 — WHY? */}
       <section className="min-h-[92vh] flex flex-col items-center justify-center text-center px-8 py-28">
         <p className="text-[9px] uppercase tracking-[0.6em] font-semibold mb-14" style={{ color: '#595248' }}>
           Cognitive Endurance Fuel — Alpha Validation
         </p>
-        <h1 className="text-7xl md:text-[11rem] font-extralight mb-14 tracking-tighter italic leading-none" style={{ color: '#262118' }}>
+        <h1 className="text-5xl md:text-7xl font-extralight mb-14 tracking-tighter italic leading-none" style={{ color: '#262118' }}>
           Why?
         </h1>
         <div className="max-w-xl mx-auto space-y-7 mb-24 text-xl font-light italic leading-loose" style={{ color: '#595248' }}>
@@ -58,7 +80,60 @@ export default function BetaWelcome() {
         <CTA />
       </section>
 
-      {/* WHY FUEL FAILS */}
+      {/* SECTION 3 — PURE FOOD */}
+      <section className="px-8 py-40" style={{ backgroundColor: '#EBEBEB' }}>
+        <div className="max-w-6xl mx-auto">
+          <p className="text-[9px] uppercase tracking-[0.5em] font-semibold mb-12" style={{ color: '#D9CE32' }}>The Formulation</p>
+          <h2 className="text-5xl md:text-6xl font-extralight mb-10 tracking-tight italic">
+            Pure food. Not a supplement.
+          </h2>
+          <p className="text-xl font-light leading-loose mb-24 max-w-3xl" style={{ color: '#595248' }}>
+            ISOVITA's hero products are real fruit and vegetable purée pouches — not gels, not syrups. Metabolically structured meals in motion, engineered for extreme endurance.
+          </p>
+
+          {/* Product images */}
+          <div className="grid md:grid-cols-2 gap-10 mb-16">
+            <div className="rounded-3xl overflow-hidden aspect-[4/3]">
+              <img src="/isovita_fruit_pouches.jpg" alt="ISOVITA Fruit Line pouches" className="w-full h-full object-cover" />
+            </div>
+            <div className="rounded-3xl overflow-hidden aspect-[4/3]">
+              <img src="/isovita_savoury_pouches.jpeg" alt="ISOVITA Savoury Line pouches" className="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10 mb-20">
+            <div className="p-14 rounded-3xl" style={{ backgroundColor: '#F2F2F2' }}>
+              <h3 className="text-[9px] uppercase tracking-[0.4em] font-semibold mb-10" style={{ color: '#262118' }}>🍐 Fruit Line</h3>
+              <ul className="space-y-5 text-lg font-light" style={{ color: '#595248' }}>
+                {['Pear + Ginger', 'Pear + Banana', 'Pear + Pineapple', 'Pear + Blueberry'].map(f => (
+                  <li key={f} className="flex items-center gap-5">
+                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#D9CE32' }}></span> {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="p-14 rounded-3xl" style={{ backgroundColor: '#F2F2F2' }}>
+              <h3 className="text-[9px] uppercase tracking-[0.4em] font-semibold mb-10" style={{ color: '#262118' }}>🥕 Savoury Line</h3>
+              <ul className="space-y-5 text-lg font-light" style={{ color: '#595248' }}>
+                {['Sweet Potato & Butternut Squash', 'Beetroot & Carrot', 'Parsnip, Apple & Thyme', 'Pumpkin, Yam & Turmeric'].map(f => (
+                  <li key={f} className="flex items-center gap-5">
+                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#D9CE32' }}></span> {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="p-16 rounded-3xl text-center" style={{ backgroundColor: '#262118' }}>
+            <h3 className="text-2xl font-extralight mb-8 italic" style={{ color: '#F2F2F2' }}>Engineered for open-water.</h3>
+            <p className="text-lg font-light leading-loose max-w-3xl mx-auto" style={{ color: '#F2F2F2', opacity: 0.75 }}>
+              Our custom die-cut pouches feature a carabiner tether point — so waste is retained on the support boat, not lost to the sea. Extreme endurance should not mean environmental damage. ISOVITA is designed for the Channel from the inside out.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4 — WHY FUEL FAILS */}
       <section className="px-8 py-40 max-w-6xl mx-auto border-t" style={{ borderColor: '#D9D9D9' }}>
         <p className="text-[9px] uppercase tracking-[0.5em] font-semibold mb-12" style={{ color: '#D9CE32' }}>The Inquiry</p>
         <h2 className="text-5xl md:text-6xl font-extralight mb-24 tracking-tight italic">
@@ -79,48 +154,7 @@ export default function BetaWelcome() {
         </div>
       </section>
 
-      {/* HERO PRODUCT */}
-      <section className="px-8 py-40" style={{ backgroundColor: '#EBEBEB' }}>
-        <div className="max-w-6xl mx-auto">
-          <p className="text-[9px] uppercase tracking-[0.5em] font-semibold mb-12" style={{ color: '#D9CE32' }}>The Formulation</p>
-          <h2 className="text-5xl md:text-6xl font-extralight mb-10 tracking-tight italic">
-            Pure food. Not a supplement.
-          </h2>
-          <p className="text-xl font-light leading-loose mb-24 max-w-3xl" style={{ color: '#595248' }}>
-            ISOVITA's hero products are real fruit and vegetable purée pouches — not gels, not syrups. Metabolically structured meals in motion, engineered for extreme endurance.
-          </p>
-          <div className="grid md:grid-cols-2 gap-10 mb-20">
-            <div className="p-14 rounded-3xl" style={{ backgroundColor: '#F2F2F2' }}>
-              <h3 className="text-[9px] uppercase tracking-[0.4em] font-semibold mb-10" style={{ color: '#262118' }}>🍐 Fruit Line</h3>
-              <ul className="space-y-5 text-lg font-light" style={{ color: '#595248' }}>
-                {['Pear + Ginger', 'Pear + Banana', 'Pear + Pineapple', 'Pear + Blueberry'].map(f => (
-                  <li key={f} className="flex items-center gap-5">
-                    <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#D9CE32' }}></span> {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="p-14 rounded-3xl" style={{ backgroundColor: '#F2F2F2' }}>
-              <h3 className="text-[9px] uppercase tracking-[0.4em] font-semibold mb-10" style={{ color: '#262118' }}>🥕 Savoury Line</h3>
-              <ul className="space-y-5 text-lg font-light" style={{ color: '#595248' }}>
-                {['Sweet Potato & Butternut Squash', 'Beetroot & Carrot', 'Parsnip, Apple & Thyme', 'Pumpkin, Yam & Turmeric'].map(f => (
-                  <li key={f} className="flex items-center gap-5">
-                    <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#D9CE32' }}></span> {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="p-16 rounded-3xl text-center" style={{ backgroundColor: '#262118' }}>
-            <h3 className="text-2xl font-extralight mb-8 italic" style={{ color: '#F2F2F2' }}>Engineered for the ocean.</h3>
-            <p className="text-lg font-light leading-loose max-w-3xl mx-auto" style={{ color: '#F2F2F2', opacity: 0.75 }}>
-              Our custom die-cut pouches feature a carabiner tether point — so waste is retained on the support boat, not lost to the sea. Extreme endurance should not mean environmental damage. ISOVITA is designed for the Channel from the inside out.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* CARB ARCHITECTURE */}
+      {/* SECTION 5 — CARB ARCHITECTURE */}
       <section className="px-8 py-40 max-w-6xl mx-auto">
         <p className="text-[9px] uppercase tracking-[0.5em] font-semibold mb-12" style={{ color: '#D9CE32' }}>The Architecture</p>
         <h2 className="text-5xl md:text-6xl font-extralight mb-10 tracking-tight italic">
@@ -143,7 +177,7 @@ export default function BetaWelcome() {
         </div>
       </section>
 
-      {/* NOOTROPICS */}
+      {/* SECTION 6 — NOOTROPICS */}
       <section className="px-8 py-40" style={{ backgroundColor: '#EBEBEB' }}>
         <div className="max-w-6xl mx-auto">
           <p className="text-[9px] uppercase tracking-[0.5em] font-semibold mb-12" style={{ color: '#D9CE32' }}>The Cognitive Edge</p>
@@ -169,7 +203,7 @@ export default function BetaWelcome() {
         </div>
       </section>
 
-      {/* SWEETNESS FATIGUE */}
+      {/* SECTION 7 — SWEETNESS FATIGUE */}
       <section className="px-8 py-40 max-w-4xl mx-auto text-center">
         <p className="text-[9px] uppercase tracking-[0.5em] font-semibold mb-12" style={{ color: '#D9CE32' }}>Sensory Science</p>
         <h2 className="text-5xl md:text-6xl font-extralight mb-16 tracking-tight italic">
@@ -184,7 +218,7 @@ export default function BetaWelcome() {
         </div>
       </section>
 
-      {/* MID CTA */}
+      {/* SECTION 8 — MID CTA */}
       <section className="px-8 py-48 text-center" style={{ backgroundColor: '#262118' }}>
         <p className="text-[9px] uppercase tracking-[0.6em] font-semibold mb-12" style={{ color: '#D9CE32' }}>Alpha Validation</p>
         <h2 className="text-5xl md:text-7xl font-extralight mb-14 italic tracking-tight" style={{ color: '#F2F2F2' }}>
@@ -196,7 +230,7 @@ export default function BetaWelcome() {
         <CTA />
       </section>
 
-      {/* THE FOUNDER */}
+      {/* SECTION 9 — THE FOUNDER (last before contact) */}
       <section className="px-8 py-40 max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-28 items-start">
           <div>
@@ -208,21 +242,10 @@ export default function BetaWelcome() {
           <div className="space-y-10 text-lg font-light leading-loose pt-2" style={{ color: '#595248' }}>
             <p>Because endurance nutrition evolved from bodybuilding supplements — not from the Channel boat at 3am.</p>
             <p>Because gels are profitable. Because "good enough" became standard.</p>
-            <p>ISOVITA was built from 15 years inside the English Channel. From observing over 360 swims. From watching real athletes fail on real fuel at the worst possible moment.</p>
+            <p>ISOVITA was built from 15 years inside the English Channel. From observing over 360 open-water swims. From watching real athletes fail on real fuel at the worst possible moment.</p>
             <p>This is not trend-based. It is physiology-led. Built by someone who has asked <em>why</em> at every crossing.</p>
           </div>
         </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="px-8 py-48 text-center" style={{ borderTop: '1px solid #D9D9D9' }}>
-        <h2 className="text-5xl md:text-8xl font-extralight mb-16 leading-tight italic tracking-tighter" style={{ color: '#262118' }}>
-          If you have ever asked<br /><span style={{ color: '#D9CE32' }}>"Why does this fail me?"</span>
-        </h2>
-        <p className="text-xl font-light mb-20 max-w-md mx-auto leading-loose" style={{ color: '#595248' }}>
-          Then you belong in this cohort.
-        </p>
-        <CTA />
       </section>
 
       {/* CONTACT */}
@@ -261,8 +284,8 @@ export default function BetaWelcome() {
           />
           <button
             type="submit"
-            className="w-full py-6 rounded-full text-xs uppercase tracking-[0.5em] font-semibold transition-all hover:opacity-80"
-            style={{ backgroundColor: '#262118', color: '#F2F2F2' }}
+            className="w-full py-6 rounded-full text-xs uppercase tracking-[0.5em] transition-all hover:opacity-80"
+            style={{ backgroundColor: '#262118', color: '#F2F2F2', fontFamily: 'sans-serif', fontWeight: 600 }}
           >
             Send Message
           </button>
